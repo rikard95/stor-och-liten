@@ -45,18 +45,12 @@ function App() {
     }
 
     try {
-      const response = await axios.get<IApiResponse>(
-        "https://www.googleapis.com/customsearch/v1",
-        {
-          params: {
-            q: searchText,
-            key: import.meta.env.VITE_GOOGLE_API_KEY,
-            cx: import.meta.env.VITE_SEARCH_ENGINE_ID,
-            siteSearch: "storochliten.se/",
-            start: (page - 1) * 10 + 1,
-          },
-        }
-      );
+      const response = await axios.get<IApiResponse>("/api/search", {
+        params: {
+          q: searchText,
+          start: (page - 1) * 10 + 1,
+        },
+      });
       console.log("API Response:", response.data);
       if (!response.data.items) {
         throw new Error("No search results");

@@ -50,8 +50,8 @@ function App() {
         {
           params: {
             q: searchText,
-            key: import.meta.env.VITE_KEY,
-            cx: import.meta.env.VITE_CX,
+            key: import.meta.env.VITE_GOOGLE_API_KEY,
+            cx: import.meta.env.VITE_SEARCH_ENGINE_ID,
             siteSearch: "storochliten.se/",
             start: (page - 1) * 10 + 1,
           },
